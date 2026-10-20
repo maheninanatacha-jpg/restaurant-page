@@ -1,0 +1,1 @@
+console.log("Le javascript est bien chargé!")
