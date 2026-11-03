@@ -1,0 +1,187 @@
+/* --- Reset & Variables Globales (Thème Sombre & Doré) --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-dark: #0f1412;           /* Vert-noir très sombre */
+  --card-dark: #161c1a;         /* Nuance un peu plus claire pour les blocs */
+  --primary-gold: #c5a059;      /* Doré / Bronze signature */
+  --text-light: #f5f5f5;        /* Blanc cassé pour les textes principaux */
+  --text-muted: #aaaaaa;        /* Gris discret pour les descriptions */
+  --border-gold: rgba(197, 160, 89, 0.4);
+  
+  --font-serif: 'Georgia', serif;
+  --font-sans: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* --- Layout Général & Navigation --- */
+#content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  background-color: var(--bg-dark);
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-gold);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.tab-btn:hover,
+.tab-btn.active {
+  color: var(--primary-gold);
+}
+
+.tab-btn::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--primary-gold);
+  transition: width 0.3s ease;
+}
+
+.tab-btn:hover::after,
+.tab-btn.active::after {
+  width: 100%;
+}
+
+/* --- Zone de Contenu Dynamique --- */
+#page-content {
+  flex: 1;
+  max-width: 900px;
+  width: 90%;
+  margin: 4rem auto;
+  padding: 4rem;
+  background-color: var(--card-dark);
+  border: 1px solid var(--border-gold);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* --- Page d'Accueil --- */
+.home-container {
+  text-align: center;
+}
+
+.home-container h1 {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 300;
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.home-container img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border: 1px solid var(--border-gold);
+  margin: 1.5rem 0 2rem 0;
+}
+
+.home-container p {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-container blockquote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--primary-gold);
+  margin-top: 2rem;
+  border: none;
+}
+
+/* --- Page Menu --- */
+.menu-container h1 {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: var(--text-light);
+  margin-bottom: 3rem;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px dashed rgba(197, 160, 89, 0.2);
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-item h3 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--primary-gold);
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu-item p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* --- Page Contact --- */
+.contact-container h1 {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: var(--text-light);
+  margin-bottom: 2.5rem;
+  letter-spacing: 1px;
+}
+
+.contact-container p {
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-muted);
+}
+
+.contact-container strong {
+  color: var(--primary-gold);
+}
